@@ -7,27 +7,20 @@ class test_imuView extends WatchUi.View {
         View.initialize();
     }
 
-    // Load your resources here
-    function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.MainLayout(dc));
-    }
-
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
-    function onShow() as Void {
-    }
-
-    // Update the view
     function onUpdate(dc as Dc) as Void {
-        // Call the parent onUpdate function to redraw the layout
-        View.onUpdate(dc);
-    }
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+        dc.clear();
 
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
-    function onHide() as Void {
-    }
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
+        dc.drawText(dc.getWidth() / 2, 30, Graphics.FONT_LARGE, "IMU TEST", Graphics.TEXT_JUSTIFY_CENTER);
+
+        dc.drawText(20, 100, Graphics.FONT_MEDIUM, "Accelerometer", Graphics.TEXT_JUSTIFY_LEFT);
+
+        dc.drawText(20, 140, Graphics.FONT_SMALL, "X:  0", Graphics.TEXT_JUSTIFY_LEFT);
+
+        dc.drawText(20, 165, Graphics.FONT_SMALL, "Y:  0", Graphics.TEXT_JUSTIFY_LEFT);
+
+        dc.drawText(20, 190, Graphics.FONT_SMALL, "Z:  0", Graphics.TEXT_JUSTIFY_LEFT);
+    }
 }
