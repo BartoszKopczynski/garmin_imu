@@ -1,0 +1,16 @@
+# Connect IQ build/generated output
+bin/
+out_folder/
+
+# VS Code
+.vscode/
+
+# Generated Connect IQ artifacts
+*.prg
+*.iq
+*.debug.xml
+
+# OS/editor files
+.DS_Store
+*.swp
+*~
