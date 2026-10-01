@@ -1,15 +1,29 @@
-import Toybox.Lang;
 import Toybox.WatchUi;
 
 class test_imuDelegate extends WatchUi.BehaviorDelegate {
 
-    function initialize() {
+    var view;
+
+    function initialize(view) {
         BehaviorDelegate.initialize();
+
+        self.view = view;
     }
 
-    function onMenu() as Boolean {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new test_imuMenuDelegate(), WatchUi.SLIDE_UP);
-        return true;
-    }
+    function onKey(keyEvent) {
 
+        var key = keyEvent.getKey();
+
+        if (key == WatchUi.KEY_UP) {
+            view.previousDisplayMode();
+            return true;
+        }
+
+        if (key == WatchUi.KEY_DOWN) {
+            view.nextDisplayMode();
+            return true;
+        }
+
+        return false;
+    }
 }

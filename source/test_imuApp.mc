@@ -17,8 +17,17 @@ class test_imuApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() as [Views] or [Views, InputDelegates] {
-        return [ new test_imuView(), new test_imuDelegate() ];
+    // function getInitialView() as [Views] or [Views, InputDelegates] {
+    //     return [ new test_imuView(), new test_imuDelegate() ];
+    // }
+    function getInitialView() {
+
+        var view = new test_imuView();
+
+        return [
+            view,
+            new test_imuDelegate(view)
+        ];
     }
 
 }
