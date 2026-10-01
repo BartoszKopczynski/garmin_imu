@@ -137,38 +137,28 @@ class test_imuView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
         var width = dc.getWidth();
+        var centerX = width / 2;
 
-        // ---------------------------------------------------------
         // Title
-        // ---------------------------------------------------------
+        dc.drawText(centerX, 5, Graphics.FONT_LARGE, "IMU", Graphics.TEXT_JUSTIFY_CENTER);
 
-        dc.drawText(width / 2, 5, Graphics.FONT_XTINY, "IMU", Graphics.TEXT_JUSTIFY_CENTER);
+        // Magnetometer - left column
+        dc.drawText(65, 42, Graphics.FONT_SMALL, "MAG", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(65, 63, Graphics.FONT_XTINY, "X: " + magX.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(65, 80, Graphics.FONT_XTINY, "Y: " + magY.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(65, 97, Graphics.FONT_XTINY, "Z: " + magZ.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
 
-        // ---------------------------------------------------------
-        // Magnetometer
-        // ---------------------------------------------------------
+        // Gyroscope - right column
+        dc.drawText(width - 65, 42, Graphics.FONT_SMALL, "GYRO", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width - 65, 63, Graphics.FONT_XTINY, "X: " + gyroX.format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width - 65, 80, Graphics.FONT_XTINY, "Y: " + gyroY.format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width - 65, 97, Graphics.FONT_XTINY, "Z: " + gyroZ.format("%.1f"), Graphics.TEXT_JUSTIFY_CENTER);
 
-        dc.drawText(10, 38, Graphics.FONT_XTINY, "MAG [mG]", Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 58, Graphics.FONT_XTINY, "X: " + magX.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 75, Graphics.FONT_XTINY, "Y: " + magY.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 92, Graphics.FONT_XTINY, "Z: " + magZ.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-
-        // ---------------------------------------------------------
-        // Gyroscope
-        // ---------------------------------------------------------
-
-        dc.drawText(10, 115, Graphics.FONT_XTINY, "GYRO [deg/s]", Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 135, Graphics.FONT_XTINY, "X: " + gyroX.format("%.1f"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 152, Graphics.FONT_XTINY, "Y: " + gyroY.format("%.1f"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 169, Graphics.FONT_XTINY, "Z: " + gyroZ.format("%.1f"), Graphics.TEXT_JUSTIFY_LEFT);
-
-        // ---------------------------------------------------------
-        // Accelerometer
-        // ---------------------------------------------------------
-
-        dc.drawText(10, 192, Graphics.FONT_XTINY, "ACCEL [mg]", Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 212, Graphics.FONT_XTINY, "X: " + accelX.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 229, Graphics.FONT_XTINY, "Y: " + accelY.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(10, 246, Graphics.FONT_XTINY, "Z: " + accelZ.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
+        // Accelerometer - centered
+        dc.drawText(centerX, 125, Graphics.FONT_SMALL, "ACCEL", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(centerX, 146, Graphics.FONT_XTINY, "X: " + accelX.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(centerX, 163, Graphics.FONT_XTINY, "Y: " + accelY.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(centerX, 180, Graphics.FONT_XTINY, "Z: " + accelZ.format("%d"), Graphics.TEXT_JUSTIFY_CENTER);
     }
+
 }
